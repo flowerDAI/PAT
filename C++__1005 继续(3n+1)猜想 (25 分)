@@ -1,0 +1,53 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+
+int arr[10000];  // 全局变量在静态存储区分配内存，局部变量是在栈上分配内存空间的
+
+int main(){
+	
+	
+	int num, v, flag = 0;   // 输入的个数 
+	cin >> num;
+	
+	vector <int> value(num);
+	
+	for(int i=0;i<num;i++){
+		cin >> v;
+		value[i] = v;
+		
+//		cout << "输入的值：" << v << endl;
+		
+		while(v != 1){
+	
+			if (v % 2 != 0) v = 3 * v +1;
+			v = v /2 ;
+			if(v == 1) break;
+			arr [v] = 1;
+			
+//			cout << "处理的值：" << v << " -- "<< arr[v] << endl; 
+			
+		}
+		
+	} 
+	
+//	cout << "====:" << endl; 
+
+	sort(value.begin(), value.end(), greater<int>());
+	
+	for(int i=0;i<value.size();i++)//去掉数组最后一个数据 
+    {
+//        cout << "显示的值" << value[i] << " --- " << arr[value[i]] << endl;
+		if(arr[value[i]] == 0){
+			if(flag == 1) cout << " ";
+			cout << value[i];
+			flag = 1;
+		}
+		 
+    }
+	
+	return 0;
+	
+}
