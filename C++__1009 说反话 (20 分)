@@ -1,0 +1,22 @@
+#include <iostream>
+#include <stack>
+using namespace std;
+int main (){	
+	stack<string> mystack;
+	string s;
+	while(cin >> s){		
+		mystack.push(s); // 让栈里加数据		
+		if(getchar()=='\n'){
+			break;
+		} 		
+	} 
+	
+	cout << mystack.top();  // 输出栈顶 
+	mystack.pop();   // 移除数据 
+	
+	while (! mystack.empty()){
+		cout << " " << mystack.top();		
+		mystack.pop();
+	}	
+	return 0 ;	
+}
