@@ -1,0 +1,27 @@
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+bool isSushu( int num){	
+	for (int i =2 ; i * i <= num ; i++){
+		if (num % i == 0) {
+			return false;
+		}
+	}
+	return true; 
+}
+int main(){
+	
+	int num, count = 0;
+	cin >> num;
+	
+	for (int i = 5; i <= num ; i ++){
+		if( isSushu(i-2) && isSushu(i) ) {
+//			cout << "符合的值：" << i-2 << "----" << i << endl;
+			count ++;
+		}
+	}
+	cout << count;	
+	return 0 ;
+}
