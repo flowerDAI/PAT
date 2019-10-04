@@ -51,7 +51,7 @@ int main(){
     for(int i=0; i< 5 ; i++){
     	if(i != 0) printf(" ");
     	
-//    	if(v[i].size() == 0){
+//    	if(v[i].size() == 0){   // 这个条件是错误的，为什么错误呢？
 //    		printf("N");
 //    		continue;
 //		}
