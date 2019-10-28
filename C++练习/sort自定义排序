@@ -1,0 +1,24 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+
+int cmp(int a, int b){
+	return a > b;   // 降序 
+	return a < b;   // 升序 
+}
+
+int main(){
+	
+	int a[10] = {2, 3, 30, 305, 32, 334, 40, 47, 5, 1};
+	vector<int> nums(a , a+10);
+	sort(nums.begin(), nums.end(), cmp);
+	for(auto &i : nums)    // 需要 C++11 
+		cout << i << "  " ;	
+	cout << endl;
+	system("pause");
+	return 0;
+		
+} 
