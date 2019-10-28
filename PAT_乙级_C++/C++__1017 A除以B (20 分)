@@ -1,0 +1,29 @@
+#include <iostream> 
+using namespace std;
+int main(){
+	
+	string s;
+	int s2;
+	cin >> s >> s2;
+	
+	int shang,yushu;
+	
+	int len = s.length();
+	
+	shang = (s[0] - '0') / s2;
+	if( len == 1 || ( shang != 0 && len > 1) ){
+		cout << shang;
+	}
+	
+	yushu = (s[0] - '0') % s2;
+	
+	for(int i =1; i< s.length(); i++){
+		shang = ( yushu* 10 + ( s[i] -'0') ) / s2;
+		cout << shang;		
+		yushu = (yushu * 10 + ( s[i] -'0')) % s2;		
+	}
+	
+	cout << " " << yushu << endl;
+	
+	return 0;	
+}
