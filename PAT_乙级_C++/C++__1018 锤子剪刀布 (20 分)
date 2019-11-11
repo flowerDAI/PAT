@@ -1,0 +1,58 @@
+#include <iostream>
+using namespace std;
+int main(){
+	int n;
+		
+	int jiaWin =0;   // 甲赢的次数 
+	int yiWin = 0;  // 乙赢的次数 
+	
+	//出那个，胜出的次数 
+	int jia[3] = {0},yi[3]={0};  // J C B  按剪刀、石头、布 的顺序 
+	                             // B C J 
+	
+	
+	cin >> n;
+	
+	for(int i =0; i<n;i++){
+		
+		char JC,YC;   // 要用 char  不要用string  ，单个字符 
+		cin >> JC >> YC;
+		
+		if(JC=='C' && YC == 'J'){
+			jiaWin++;
+			jia[1]++; 			
+		}else if (JC == 'J' && YC == 'B'){
+			jiaWin++;
+			jia[2]++;   //
+		}else if(JC == 'B' && YC == 'C'){
+			jiaWin++;
+			jia[0]++;   //
+		}else if(JC=='C' && YC == 'B'){
+			yiWin ++;
+			yi[0]++;   //
+		}else if(JC == 'J' && YC == 'C'){
+			yiWin++;
+			yi[1]++;
+		}else if(JC == 'B' && YC == 'J'){
+			yiWin++;
+			yi[2]++;  //
+		}		
+	}
+	
+	// 计算 甲乙 的 胜 平  负 次数 
+	cout << jiaWin << " " << n-jiaWin-yiWin << " " << yiWin << endl;
+	cout << yiWin <<" " << n-jiaWin-yiWin << " " << jiaWin << endl;
+	
+	int maxJia = jia[0] >= jia[1] ? 0 : 1 ;
+	maxJia = jia[maxJia] >= jia[2] ? maxJia : 2;
+	
+	int maxYi = yi[0] >= yi[1] ? 0 : 1 ;
+	maxYi = yi[maxYi] >= yi[2] ? maxYi : 2;
+	
+	char str[4] = {"BCJ"}; 
+	cout << str[maxJia] << " " << str[maxYi];
+	
+	return 0;
+	
+
+} 
