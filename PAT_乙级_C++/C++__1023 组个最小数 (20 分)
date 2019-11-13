@@ -1,0 +1,33 @@
+#include<iostream>
+using namespace std;
+int main(){
+	
+	int a[10];
+	for(int i = 0; i < 10 ; i++){
+		cin >> a[i];
+	}
+	
+	int flag = 0;
+	for(int i = 1; i < 10; i++){
+		if(a[i] != 0){
+			cout << i;   // 输出第一位数字 
+			flag = i;
+			break;
+		}
+	}
+	
+	//输出0
+	for(int i = 0; i < a[0]; i++) cout << 0;
+	//输出第一位剩余的
+	for(int i = 0; i < a[flag]-1; i++) cout << flag;
+	
+	// 输出剩余的
+	for(int i= flag+1; i < 10 ; i++){
+		//if(a[i] > 0){
+			for(int j=0; j < a[i]; j++) cout << i;
+		//}
+		
+	} 
+		
+	return 0;
+}
