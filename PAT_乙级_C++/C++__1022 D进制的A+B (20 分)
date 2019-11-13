@@ -1,0 +1,29 @@
+#include<iostream>
+using namespace std;
+int main (){
+	
+	int n1,n2,d;
+	cin >> n1 >> n2 >> d;
+	
+	int sum = n1 + n2;
+	
+	if(sum == 0){
+		cout << sum ;
+		return 0;
+	} 
+	
+	
+	int result[100];   // 用来放余数
+	
+	int i = 0;
+	while(sum > 0){
+		result[i++] = sum % d;		
+		sum /= d;			
+	} 
+	
+	for(int j = i-1; j>=0; j--){
+		cout << result[j];
+	}
+	
+	return 0;
+} 
