@@ -1,0 +1,38 @@
+#include<iostream>
+
+#include<algorithm>
+
+using namespace std;
+int main(){
+	
+	int a[50];
+	int b[50];
+	for(int i = 0; i < 10; i++){
+		a[i] = i;
+		if(i != 9){
+			cout << a[i] << " ";
+		}
+		else{
+			cout << a[i] << endl;
+		}
+	}
+	
+	int k = 4;
+	
+	for(int i = 0; i < (10- 10 % k); i+=k){
+		reverse(begin(a)+i, begin(a)+i+k);
+	}
+	
+	//reverse(a+5, a+10);
+	
+	for(int i = 0; i < 10; i++){
+		if(i != 9){
+			cout << a[i] << " ";
+		}
+		else{
+			cout << a[i] << endl;
+		}
+	}
+	
+	return 0;
+} 
