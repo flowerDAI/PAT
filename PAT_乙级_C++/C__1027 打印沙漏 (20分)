@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+int main (){
+
+  //  把沙漏分成2个部分，上面一个三角形，下面一个梯形
+  //  0 和 1 特殊处理 
+
+	
+	int number;
+	char c;	
+	cin >> number >> c;
+		
+	int row=0;
+	
+	for(int i = 1; i < number; i++){
+		if( 2*i*i-1 > number ){
+			row = i-1;
+			break;
+		}
+	}
+	
+	if(number == 1) row = 1;	
+	
+	//cout << row <<endl;
+	
+	for(int i = row; i >= 1; i--){
+		for (int k = row-i; k >= 1; k--) cout << " ";
+		
+		for (int j = 2*i-1; j>=1; j--) cout << c;
+		cout << endl;		
+	}
+	
+	for (int i = 2; i <= row; i++){
+		for (int k = row-i; k >= 1; k--) cout << " ";
+		for (int j = 2*i-1; j>=1; j--) cout << c;
+		cout << endl;
+	}
+		
+	int res = row > 0 ? 2*row*row-1 : 0;
+	
+	cout << number - res << endl; 
+		
+	return 0 ;
+}
