@@ -1,0 +1,39 @@
+#include<iostream>
+using namespace std;
+int main(){
+	
+	int number;  // 输入的行数
+	cin >> number;
+	
+	int count = 0;  // 生日正常的个数
+	
+	string name, birthday;   // 输入的名字和生日 
+	 
+	 string maxname,minname;  
+	 string maxBirthday="1814/09/06", minBirthday = "2014/09/06" ; 
+	 
+	for(int i = 0; i< number; i++){
+		
+		cin >> name >> birthday; 
+		
+		if(birthday >= "1814/09/06" && birthday <= "2014/09/06"){
+			count ++;
+			
+			if(birthday >= maxBirthday){
+				maxBirthday = birthday;
+				maxname = name;
+			}
+			if(birthday <= minBirthday){
+				minBirthday = birthday;
+				minname = name;
+			}
+						
+		} 
+	} 
+	
+	cout << count;
+	if(count != 0)  cout << " " << minname << " " << maxname << endl ;
+	
+	return 0 ;
+	
+}
