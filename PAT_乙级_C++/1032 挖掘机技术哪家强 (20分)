@@ -1,0 +1,31 @@
+#include<iostream>
+#include<vector> 
+using namespace std;
+int main(){
+	
+	int number;
+	cin >> number;
+	
+	int bianhao, fenshu;
+	
+	//int sum[100000] = {0};
+	
+	vector<int> sum(number);
+	
+	
+	int maxBh=0,maxfs=0;
+	
+	for(int i = 0; i<number; i++){
+		cin >> bianhao >> fenshu;
+		sum[bianhao] += fenshu;
+		
+		if(sum[bianhao] > maxfs ){
+			maxBh = bianhao;
+			maxfs = sum[bianhao];
+		}
+	}
+	
+	cout << maxBh << " "<< maxfs << endl;
+	
+	return 0;
+}
