@@ -1,0 +1,36 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+	string lockStr;
+	string inStr;
+	
+	//cin >> lockStr >> inStr;
+	getline(cin, lockStr);  //为了防止第一行是空的，不能用cin >> ,用getline(cin, ...)
+	getline(cin, inStr);
+	
+	for(int i = 0; i < inStr.length(); i++){
+		
+		// 是数字		
+		if( inStr[i]>='0' && inStr[i] <='9' && lockStr.find(inStr[i]) == string::npos){
+				
+			cout << inStr[i];				
+		// 大写 
+		}else if( isupper(inStr[i]) &&  lockStr.find(inStr[i]) == string::npos && lockStr.find('+') == string::npos ){
+						
+			cout << inStr[i];
+		// 小写				
+		}else if( islower(inStr[i])  && lockStr.find(toupper(inStr[i])) == string::npos ){
+			
+			cout << inStr[i];
+			
+		}else if( (inStr[i] == ',' || inStr[i] == '.' || inStr[i] == '-' || inStr[i] == '_' || inStr[i] == '+' ) && lockStr.find(inStr[i]) == string::npos ){
+			
+			cout << inStr[i];
+		}else{
+			continue;
+		}				
+	}	
+	
+	return 0;
+} 
