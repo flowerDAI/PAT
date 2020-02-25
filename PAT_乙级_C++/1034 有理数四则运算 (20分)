@@ -1,0 +1,71 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+// 找出分数的最大公约数，进行约分   (知识漏点)
+long long gcd(long long t1, long long t2) {
+    return t2 == 0 ? t1 : gcd(t2, t1 % t2);
+}
+
+void func(long long fenzi, long long fenmu){
+	
+	// 判断是不是 有  0； 
+	if( fenzi * fenmu == 0){
+		printf("%s", fenmu == 0 ? "Inf" : "0" );
+		return ;
+	}
+	
+	// 判断符号
+	bool isFu = ((fenzi > 0 && fenmu < 0) || (fenzi < 0 && fenmu > 0));	    //  这里出现错误	
+	printf("%s", isFu ? "(-" : "");
+	
+	
+	// 取分子分母的绝对值
+	fenzi = abs(fenzi);
+	fenmu = abs(fenmu); 
+	
+	//  商 
+	int shang = fenzi / fenmu;
+	if(shang != 0) printf("%lld",shang);
+	
+	// 正好整除，没有余数 
+	if(fenzi % fenmu == 0){
+		if(isFu) printf(")");
+		return ;
+	} 
+	
+	if(shang != 0) printf(" ");     //  这里漏掉了 
+	fenzi = fenzi - shang * fenmu;
+	
+	// 对分子分母进行约分
+	// 找分子分母的最大公约数
+	long long big_gongyueshu = gcd(fenmu,fenzi);
+	
+	fenzi = fenzi / big_gongyueshu;
+	fenmu = fenmu / big_gongyueshu;
+	
+	printf("%lld/%lld",fenzi,fenmu); 
+	
+	printf("%s", isFu ? ")" : "");
+		
+} 
+
+
+
+int main(){
+	
+	long long a,b,c,d;
+	
+	scanf("%lld/%lld %lld/%lld",&a,&b,&c,&d);
+	
+	func(a,b);printf(" + "); func(c,d); printf(" = "); func(a*d+c*b, b*d); printf("\n");
+	
+	func(a,b);printf(" - "); func(c,d); printf(" = "); func(a*d-c*b, b*d); printf("\n");
+	
+	func(a,b);printf(" * "); func(c,d); printf(" = "); func(a*c, b*d); printf("\n");
+	
+	func(a,b);printf(" / "); func(c,d); printf(" = "); func(a*d, b*c); printf("\n");
+	
+	
+	return 0 ;
+} 
